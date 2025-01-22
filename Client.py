@@ -15,8 +15,6 @@ def generate_mac(key, message):
     key = bytes(key, 'utf-8')
     message = bytes(message, 'utf-8')
     return hmac.new(key, message, hashlib.sha512).hexdigest()
-
-
 original_mac1= generate_mac(secret_key, message2)
 original_mac = str(original_mac1)
 print ("Orignal mac is: ",generate_mac(secret_key, message2))
@@ -27,4 +25,5 @@ print(message2)
 if external_mac == original_mac:
     print("Message is authentic.")
 else:
+    print("Message has been tampered with.")
     print("Message has been tampered with.")
